@@ -6,7 +6,7 @@ Use intended for development purposes only!
 Installation:
 Just run 
 ```bash
-go install -u github.com/fronbasal/serve
+go get github.com/fronbasal/serve
 ``` 
 to install the tool.
 You just need to go toolchain.
