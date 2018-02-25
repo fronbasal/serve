@@ -21,6 +21,6 @@ func main() {
 	if err != nil {
 		log.Fatal(err.Error())
 	}
-	fmt.Printf("Serving %s on http://%s:%s \n", path, "localhost", strconv.Itoa(*port))
+	fmt.Printf("Serving %s on http://%s:%s \n", path, "0.0.0.0", strconv.Itoa(*port))
 	log.Fatal(http.ListenAndServe(":"+strconv.Itoa(*port), http.FileServer(http.Dir(path))))
 }
