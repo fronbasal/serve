@@ -12,7 +12,7 @@ import (
 )
 
 var (
-	port = kingpin.Arg("port", "The port to serve the directory at").Default("3000").Int()
+	port = kingpin.Flag("port", "The port to serve the directory at").Default("3000").Int()
 )
 
 func main() {
