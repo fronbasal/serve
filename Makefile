@@ -1,4 +1,4 @@
-appname := substitutes
+appname := serve
 
 sources := $(wildcard *.go)
 
