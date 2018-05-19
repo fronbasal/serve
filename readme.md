@@ -3,15 +3,12 @@ serve is a simple CLI to serve a folder to a port on the interwebz.
 
 Use intended for development purposes only!
 
-Installation:
-Just run 
+## Installation:
 ```bash
 go get github.com/fronbasal/serve
 ``` 
-to install the tool.
-You just need to go toolchain.
 
-Usage:
+## Usage:
 ```
 usage: serve [<flags>] [<port>]
 
@@ -21,3 +18,9 @@ Flags:
 Args:
   [<port>]  The port to serve the directory at
 ```
+
+## FAQ
+
+### Can't I just use the built in python http server?
+
+Yes, you can. This software is designed to be faster than the one python provides.
