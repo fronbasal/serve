@@ -6,7 +6,7 @@ Use of serve is intended for development purposes only!
 
 ## Installation:
 ```bash
-go get -v -d github.com/fronbasal/serve
+go get -v github.com/fronbasal/serve
 ``` 
 
 Binary releases are availible on the [release page](https://github.com/fronbasal/serve/releases).
