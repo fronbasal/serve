@@ -6,22 +6,23 @@ Use of serve is intended for development purposes only!
 
 ## Installation:
 ```bash
-go get github.com/fronbasal/serve
+go get -v -d github.com/fronbasal/serve
 ``` 
 
 ## Usage:
 ```
-usage: serve [<flags>] [<port>]
+usage: serve [<flags>]
 
 Flags:
-  --help  Show context-sensitive help (also try --help-long and --help-man).
-
-Args:
-  [<port>]  The port to serve the directory at
+      --help         Show context-sensitive help (also try --help-long and --help-man).
+  -p, --port=3000    The port of the HTTP server.
+  -d, --directory=.  The directory to serve
 ```
 
-## FAQ
+## Maintainers
 
-### Can't I just use the built in python http server?
+- Daniel Malik (mail@fronbasal.de)
 
-Yes, you can. This software is designed to be faster than the one python provides.
+## License
+
+AGPLv3
