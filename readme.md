@@ -1,4 +1,8 @@
 # Serve
+[![Go Report Card](https://goreportcard.com/badge/github.com/fronbasal/serve)](https://goreportcard.com/report/github.com/fronbasal/serve)
+[![Maintainability](https://api.codeclimate.com/v1/badges/fccfa711a959c2efef3d/maintainability)](https://codeclimate.com/github/fronbasal/serve/maintainability)
+[![codebeat badge](https://codebeat.co/badges/6aabbecf-5cdf-4ef3-b751-db975182dbcb)](https://codebeat.co/projects/github-com-fronbasal-serve-master)
+
 
 Serve is a simple CLI to serve data via http.
 
