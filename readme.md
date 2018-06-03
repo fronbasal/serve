@@ -13,8 +13,7 @@ Use of serve is intended for development purposes only!
 go get -v github.com/fronbasal/serve
 ``` 
 
-Binary releases are availible on the [release page](https://github.com/fronbasal/serve/releases).
-You can compile the binaries yourself by using the Makefile.
+Binary releases are available on the [release page](https://github.com/fronbasal/serve/releases) or can be compiled utilizing the Makefile.
 
 ## Usage:
 ```
