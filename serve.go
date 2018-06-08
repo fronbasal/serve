@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"path/filepath"
 	"strconv"
 
 	"gopkg.in/alecthomas/kingpin.v2"
@@ -16,6 +17,10 @@ var (
 
 func main() {
 	kingpin.Parse()
-	fmt.Printf("Serving %s on http://%s:%s \n", *directory, "0.0.0.0", strconv.Itoa(*port))
-	log.Fatal(http.ListenAndServe(":"+strconv.Itoa(*port), http.FileServer(http.Dir(*directory))))
+	absDir, err := filepath.Abs(filepath.Dir(*directory))
+	if err != nil {
+		log.Fatal("Failed to get directory: " + err.Error())
+	}
+	fmt.Printf("Serving %s on http://%s:%s \n", absDir, "0.0.0.0", strconv.Itoa(*port))
+	log.Fatal(http.ListenAndServe(":"+strconv.Itoa(*port), http.FileServer(http.Dir(absDir))))
 }
