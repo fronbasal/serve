@@ -14,7 +14,7 @@ import (
 
 var (
 	port      = kingpin.Flag("port", "The port of the HTTP server.").Default("3000").Short('p').Int()
-	directory = kingpin.Flag("directory", "The directory to serve").Default(".").Short('d').ExistingDir()
+	directory = kingpin.Arg("directory", "The directory to serve").Default(".").ExistingDir()
 )
 
 func main() {
