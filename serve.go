@@ -8,6 +8,8 @@ import (
 	"strconv"
 
 	"gopkg.in/alecthomas/kingpin.v2"
+	"os"
+	"strings"
 )
 
 var (
@@ -19,9 +21,10 @@ func main() {
 	kingpin.Parse()
 	*directory += "/"
 	absDir, err := filepath.Abs(filepath.Dir(*directory))
+	relDir := strings.Replace(absDir, os.Getenv("HOME"), "~", 1) + "/"
 	if err != nil {
 		log.Fatal("Failed to get directory: " + err.Error())
 	}
-	fmt.Printf("Serving %s on http://%s:%s \n", absDir, "0.0.0.0", strconv.Itoa(*port))
+	fmt.Printf("Serving %s on http://%s:%s \n", relDir, "0.0.0.0", strconv.Itoa(*port))
 	log.Fatal(http.ListenAndServe(":"+strconv.Itoa(*port), http.FileServer(http.Dir(absDir))))
 }
