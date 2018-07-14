@@ -17,6 +17,7 @@ var (
 
 func main() {
 	kingpin.Parse()
+	*directory += "/"
 	absDir, err := filepath.Abs(filepath.Dir(*directory))
 	if err != nil {
 		log.Fatal("Failed to get directory: " + err.Error())
