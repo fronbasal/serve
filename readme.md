@@ -8,21 +8,23 @@ Serve is a simple CLI to serve data via http.
 
 Use of serve is intended for development purposes only!
 
-## Installation:
+## Installation
 ```bash
 go get -v github.com/fronbasal/serve
 ``` 
 
 Binary releases are available on the [release page](https://github.com/fronbasal/serve/releases) or can be compiled utilizing the Makefile.
 
-## Usage:
+## Usage
 ```
-usage: serve [<flags>]
+usage: serve [<flags>] [<directory>]
 
 Flags:
-      --help         Show context-sensitive help (also try --help-long and --help-man).
-  -p, --port=3000    The port of the HTTP server.
-  -d, --directory=.  The directory to serve
+      --help       Show context-sensitive help (also try --help-long and --help-man).
+  -p, --port=3000  The port of the HTTP server.
+
+Args:
+  [<directory>]  The directory to serve
 ```
 
 ## Maintainers
