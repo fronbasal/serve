@@ -33,4 +33,4 @@ Args:
 
 ## License
 
-AGPLv3
+MIT
