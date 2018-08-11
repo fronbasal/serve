@@ -15,7 +15,7 @@ import (
 var (
 	port      = kingpin.Flag("port", "The port of the HTTP server.").Default("3000").Short('p').Int()
 	directory = kingpin.Arg("directory", "The directory to serve").Default(".").ExistingDir()
-	verbose   = kingpin.Flag("verbose", "Enable verbose output").Default("true").Bool()
+	verbose   = kingpin.Flag("verbose", "Enable verbose output").Default("true").Short('v').Bool()
 )
 
 func main() {

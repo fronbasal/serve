@@ -10,7 +10,7 @@ Use of serve is intended for development purposes only!
 
 ## Installation
 ```bash
-go get -v github.com/fronbasal/serve
+go get -v -u github.com/fronbasal/serve
 ``` 
 
 Binary releases are available on the [release page](https://github.com/fronbasal/serve/releases) or can be compiled utilizing the Makefile.
@@ -22,6 +22,7 @@ usage: serve [<flags>] [<directory>]
 Flags:
       --help       Show context-sensitive help (also try --help-long and --help-man).
   -p, --port=3000  The port of the HTTP server.
+  -v, --verbose    Enable verbose output
 
 Args:
   [<directory>]  The directory to serve
