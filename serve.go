@@ -1,4 +1,4 @@
-package main // import github.com/fronbasal/serve
+package main
 
 import (
 	"net/http"
