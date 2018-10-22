@@ -13,11 +13,7 @@ all: windows darwin linux
 clean:
 	rm -rf build/
 
-linux: build/linux_arm.tar.gz build/linux_arm64.tar.gz build/linux_386.tar.gz build/linux_amd64.tar.gz
-
-build/linux_386.tar.gz: $(sources)
-	$(call build,linux,386,)
-	$(call tar,linux,386)
+linux: build/linux_arm.tar.gz build/linux_arm64.tar.gz build/linux_amd64.tar.gz
 
 build/linux_amd64.tar.gz: $(sources)
 	$(call build,linux,amd64,)
@@ -37,11 +33,7 @@ build/darwin_amd64.tar.gz: $(sources)
 	$(call build,darwin,amd64,)
 	$(call tar,darwin,amd64)
 
-windows: build/windows_386.zip build/windows_amd64.zip
-
-build/windows_386.zip: $(sources)
-	$(call build,windows,386,.exe)
-	$(call zip,windows,386,.exe)
+windows: build/windows_amd64.zip
 
 build/windows_amd64.zip: $(sources)
 	$(call build,windows,amd64,.exe)
