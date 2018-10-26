@@ -3,12 +3,12 @@ appname := serve
 sources := $(wildcard *.go)
 
 build = GOOS=$(1) GOARCH=$(2) go build -o build/$(appname)$(3)
-tar = cd build && tar -cvzf $(1)_$(2).tar.gz $(appname)$(3) && rm $(appname)$(3)
-zip = cd build && zip $(1)_$(2).zip $(appname)$(3) && rm $(appname)$(3)
+tar = cd build && tar -cvzf $(1)-$(2).tar.gz $(appname)$(3) && rm $(appname)$(3)
+zip = cd build && zip $(1)-$(2).zip $(appname)$(3) && rm $(appname)$(3)
 
 .PHONY: all windows darwin linux clean
 
-all: windows darwin linux
+all: linux windows darwin
 
 clean:
 	rm -rf build/

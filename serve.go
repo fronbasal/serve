@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"strconv"
 
-	log "github.com/sirupsen/logrus"
+	"github.com/sirupsen/logrus"
 	"gopkg.in/alecthomas/kingpin.v2"
 	"net"
 	"os"
@@ -22,23 +22,27 @@ var (
 func main() {
 	app.Parse(os.Args[1:])
 	if *verbose {
-		log.SetLevel(log.DebugLevel)
+		logrus.SetLevel(logrus.DebugLevel)
 	} else {
-		log.SetLevel(log.InfoLevel)
+		logrus.SetLevel(logrus.InfoLevel)
 	}
+	// Resolve the absolute path from the given directory
 	absDir, err := filepath.Abs(*directory)
+	// Produce a relative directory ($HOME -> ~)
 	relDir := strings.Replace(absDir, os.Getenv("HOME"), "~", 1) + "/"
 	if err != nil {
-		log.Fatal("Failed to get directory: ", err)
+		logrus.Fatal("Failed to get directory: ", err)
 	}
-	log.Infof("Serving %s on http://%s:%s \n", relDir, "0.0.0.0", strconv.Itoa(*port))
-	server := &http.Server{Addr: ":" + strconv.Itoa(*port), Handler: http.FileServer(http.Dir(absDir))}
-	server.ConnState = func(conn net.Conn, state http.ConnState) {
+	logrus.Infof("Serving %s on http://%s:%s \n", relDir, "0.0.0.0", strconv.Itoa(*port))
+
+	// Create HTTP server
+	server := &http.Server{Addr: ":" + strconv.Itoa(*port), Handler: http.FileServer(http.Dir(absDir)), ConnState: func(conn net.Conn, state http.ConnState) {
 		if state == http.StateActive {
-			log.Debug("Serving client ", conn.LocalAddr().String())
+			logrus.Debug("Serving client %s", conn.RemoteAddr())
 		}
-	}
+	}}
+
 	if err := server.ListenAndServe(); err != nil {
-		log.Fatal("Failed to start server: ", err)
+		logrus.Fatal("Failed to start server: ", err)
 	}
 }
